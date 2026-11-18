@@ -1,12 +1,4 @@
-import { ErrorValidacion } from '../../../shared/errors.js'
-
-function leerId(req) {
-  const id = Number(req.params.id)
-  if (!Number.isInteger(id) || id <= 0) {
-    throw new ErrorValidacion({ id: 'El identificador debe ser un número entero positivo.' })
-  }
-  return id
-}
+import { leerId } from '../utils/parametros.js'
 
 export function crearJugadoresController(servicio) {
   return {
@@ -15,7 +7,7 @@ export function crearJugadoresController(servicio) {
     },
 
     async obtener(req, res) {
-      res.json(await servicio.obtener(leerId(req)))
+      res.json(await servicio.obtener(leerId(req.params.id)))
     },
 
     async crear(req, res) {
@@ -24,11 +16,11 @@ export function crearJugadoresController(servicio) {
     },
 
     async actualizar(req, res) {
-      res.json(await servicio.actualizar(leerId(req), req.body))
+      res.json(await servicio.actualizar(leerId(req.params.id), req.body))
     },
 
     async eliminar(req, res) {
-      await servicio.eliminar(leerId(req))
+      await servicio.eliminar(leerId(req.params.id))
       res.status(204).end()
     },
 
