@@ -1,0 +1,29 @@
+{
+  "name": "riftschedule-api",
+  "version": "1.0.0",
+  "description": "API REST de RiftSchedule (Node.js, Express, PostgreSQL)",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "db:init": "node src/infrastructure/database/initDb.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Loa001/riftschedule-api.git"
+  },
+  "keywords": ["riftschedule", "api", "express", "postgresql"],
+  "author": "Fernando Loa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Loa001/riftschedule-api/issues"
+  },
+  "homepage": "https://github.com/Loa001/riftschedule-api#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  }
+}
